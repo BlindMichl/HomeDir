@@ -1,0 +1,5 @@
+<ul>
+	{{#each model 'input'}}
+		<li><img class="pull-left" src="images/products/{{unbound this.picture}}" width="100" style="max-height:100px">{{unbound input.name}} - {{unbound input.description}}</li>
+	{{/each}}
+</ul>

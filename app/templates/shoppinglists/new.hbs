@@ -1,0 +1,123 @@
+<div class="panel panel-default">
+	<div class="panel-heading"><h3 class="panel-title">Shopping List</h3></div>
+
+	<div class="panel-body">
+		<form class="form-horizontal" role="form">
+		<div>
+			<img class="" src="images/shoppinglists/{{unbound shop.picture}}" alt="Shoppinglist Picture" />
+		</div>
+
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">Shopping List Name</label>
+			<div class="col-sm-9">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-list-alt"></span>
+					</span>
+					<input type="text" id="name" name="name" class="form-control" placeholder='Name of the Shopping List' required>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+ 				{{#each shop in shops}}
+ 				<p>{{unbound shop.name}}</p>
+ 				<p>{{controllers.shops.name}}</p>
+<!--
+  			<div class="col-xs-6 col-md-3">
+    			<input type="radio" name="shop" id="shop">
+      			<img src="{{unbound picture}}" alt="{{unbound name}}">
+    			</input>
+  			</div>
+-->
+				{{/each}}
+			</div>
+		
+		
+
+		</div>
+	
+		<div class="form-group">
+			<label for="date" class="col-sm-2 control-label">shopping date</label>
+			<div class="col-sm-9">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+					<input type="date" id="shop" name="shop" class="form-control">
+				</div>
+			</div>
+		</div>
+	</form>		
+	</div>
+</div>
+			
+<div class="panel panel-default">
+	<button type="button" class="btn btn-success" {{action 'create_list'}}>Save</button>
+  <button type="button" class="btn btn-danger" {{action 'cancel'}}>Cancel</button>
+</div>
+
+<div class="panel panel-default hide" id="bottom_content">
+
+
+
+	<div class="panel-heading"><h3 class="panel-title">Shopping List Items</h3></div>
+
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+          <td><input type="checkbox"></td>
+					<td>Product</td>
+					<td>Amount</td>
+					<td>Price</td>
+					<td>Total</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><button type="button" class="btn btn-success" {{action 'add_shopping_item'}}>OK</button></td>
+					<td>{{input class="form-control" type="text" action="dosearch" on="key-press" name="product" id="nameInput"}}</td>
+					<td>{{input class="form-control" type="text" id="amountInput" valueBinding="calcTotalAmount"}}</td>
+					<td>{{input class="form-control" type="text" id="priceInput" valueBinding="calcTotalPrice"}}</td>
+					<td>{{input class="form-control" id="totalInput"}}</td>
+				</tr>
+				{{#each shoppingitem in shoppingitems}}
+				<tr>
+          <td><input type="checkbox" id="chk{{unbound shoppingitem.id}}"></td>
+					<td>{{shoppingitem.product.name}}</td>
+					<td>{{shoppingitem.amount}}</td>
+					<td>{{shoppingitem.price}}</td>
+					<td>{{shoppingitem.total}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+  	</table>
+	</div>
+</div>
+
+
+
+<script type="text/x-handlebars" data-template-name='appendRow'>
+  <tr>
+		<td><input type="checkbox" id="chk{{unbound product.id}}"></td>
+		<td>{{unbound product.name}}</td>
+		<td>{{unbound amount}}</td>
+		<td>{{unbound product.price}}</td>
+		<td>{{unbound total}}</td>
+	</tr>
+</script>
+
+
+
+<div class="hidden" id="dataListComponent">
+<ul class="list-group">
+	{{#each product in controller.results}}
+	<li class="list-group-item select_item"> <a {{action "choose_selected_item" product}} id="{{unbound product.id}}"><img src="images/products/{{unbound product.picture}}" style="max-height:35px">{{unbound product.name}} - {{unbound product.description}}</a></li>
+	{{/each}}
+</ul>
+</div>
+
+
+{{outlet 'modal'}}
