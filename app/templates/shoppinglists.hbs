@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Shopping Lists</h3>
+	</div>
+	<div class="panel-body">
+	
+    {{#each model as |shoppinglist|}}
+      <div class="panel panel-default">
+        {{#link-to 'shoppinglists.shoppinglist' shoppinglist.id}}
+					<div class="panel-body">
+
+            <div class="col-md-3">
+						  <img class="pull-left" src="images/shoppinglists/{{shoppinglist.picture}}" width="150" style="max-height:100px">
+              <img class="pull-left" src="images/shops/{{shop.picture}}" width="150" style="max-height:100px">
+            </div>
+            <div class="col-md-3">
+						  <h3>{{shop.name}}</h3>
+              <h5><span class="label label-default">{{shoppinglist.date}}</span></h5>
+            </div>
+            <div class="col-md-4">
+						  <p style="overflow: hidden; width: 400px; height:50px; background: linear-gradient(to bottom right, yellow , blue);">{{shoppinglist.description}}</p>
+            </div>
+            <div class="col-md-2">
+              <span class="label label-default">test Tag</span>	
+              <span class="label label-default">another tag</span>
+            </div>
+
+				  </div>
+				{{/link-to}}
+			</div>
+		{{/each}}
+	</div>
+</div>

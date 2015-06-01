@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Options</h3><span>for user {{unbound user.name}}</span></div>
+  <div class="panel-body">
+
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Autosave</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="autosave" name="autosave" value="{{unbound autosave}}">
+          <input type="range" name="points" min="0" max="1" style="width:30px">
+        </div>
+      </div>
+	
+	
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-9">
+          <button type="button" class="btn btn-primary" {{action 'save'}}>Save</button>
+					{{#link-to 'index'}}<button type="button" class="btn btn-danger">Cancel</button>{{/link-to}}
+        </div>
+      </div>
+      
+    </form>
+  </div>
+</div>
