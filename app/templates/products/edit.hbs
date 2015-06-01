@@ -1,0 +1,94 @@
+<div class="panel panel-default">
+	<div class="panel-heading"><h3 class="panel-title">Change Product</h3><span>last update {{model.date_update}}</span></div>
+	<div class="panel-body">
+
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">Name</label>
+				<div class="col-sm-9">
+					<input type="name" class="form-control" id="name" name="name" placeholder="Name of the Product" value="{{model.name}}" required>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-9">
+					<textarea type="description" class="form-control" rows="3" id="description" name="description" placeholder="Description of the Product">{{model.description}}</textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="distributor" class="col-sm-2 control-label">Distributor</label>
+				<div class="col-sm-9">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-road"></span>
+						</span>
+						<input type="distributor" class="form-control" id="distributor" name="distributor" placeholder="Distributor of the Product" value="{{distributor.name}}">
+						
+					</div><!-- /input-group -->
+
+				</div> <!-- /col-sm-9 -->
+			</div> <!-- /form-group -->
+	
+			<div class="form-group">
+				<label for="manufacturer" class="col-sm-2 control-label">Manufacturer</label>
+				<div class="col-sm-9">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-road"></span>
+						</span>
+						<input type="manufacturer" class="form-control" id="manufacturer" name="manufacturer" placeholder="Manufacturer of the Product" value="{{manufacturer.name}}">
+						
+					</div><!-- /input-group -->
+			
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="picture" class="col-sm-2 control-label">Picture</label>
+		<div class="col-sm-9">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-picture"></span>
+				</span>
+						<input type="picture" class="form-control" id="picture" name="picture" placeholder="Picture of the Product" value="{{model.picture}}">
+			</div>
+			
+		</div>
+	</div>	
+
+	<div class="form-group">
+		<label for="barecode" class="col-sm-2 control-label">Barecode</label>
+		<div class="col-sm-9">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-barcode"></span>
+				</span>
+				<input type="barecode" class="form-control" id="barecode" name="barecode" placeholder="Barecode of the Product" value="{{model.barecode}}" required>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="latest_price" class="col-sm-2 control-label">Price</label>
+		<div class="col-sm-3">
+			<div class="input-group">
+				<span class="input-group-addon">€</span>
+				<input type="number" class="form-control" id="latest_price" name="latest_price" placeholder="Price of the Product" value="{{model.price}}">
+			</div>
+			
+		</div>
+	</div>
+
+	 <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-9">
+				 <button type="button" class="btn btn-success" {{action 'save'}}>Update Product</button>
+        {{#link-to 'products.product' model}}<button type="button" class="btn btn-danger">Cancel</button>{{/link-to}}
+			</div>
+	 </div>
+	
+</form>
+</div>
+</div>
+

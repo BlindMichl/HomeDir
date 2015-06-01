@@ -1,3 +1,75 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  	<div class="navbar-header">
+    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar">bar 1</span>
+				<span class="icon-bar">bar 2</span>
+				<span class="icon-bar">bar 3</span>
+			</button>
+      <a class="navbar-brand" href="#">Homedir</a>
+			  
+			<ul class="nav navbar-nav navbar-left nav-pills">
+				<li role="presentation">
+					{{#link-to 'products'}}
+<!--						<img width="20" src="images/navigation/products.png">-->
+						<span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+						Products 
+						<span class="badge">
+							{{productsCount}}
+						</span>
+					{{/link-to}}
+				</li>
+				<li role="presentation">
+					{{#link-to 'shoppinglists'}}
+<!--						<img width="20" src="images/navigation/shopping.png">-->
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+						Shopping Lists
+					{{/link-to}}</li>
+				<li>
+					{{#link-to 'inventory'}}
+<!--						<img width="20" src="images/navigation/fridge.png">-->
+						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+						Inventory
+					{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'recipes'}}
+<!--						<img width="20" src="images/navigation/recipe.png">-->
+						<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+						Recipes
+					{{/link-to}}
+				</li>
+			</ul>
+			<section class="navbar-right">
+				<img class="user-img" src="images/photo[1].jpg" alt="543eea102e6c53532bc78300_photo%5B1%5D.jpg">
+				<div class="pull-right user-name">
+					{{#if user}}{{#link-to 'option'}}{{user.name}}{{/link-to}}{{else}}{{#link-to 'login'}}Please log in.{{/link-to}}{{/if}}
+				</div>
+			</section>
+			  
+			  
+		</div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse"></div>
+	</nav>
 
-{{outlet}}
+	<div class="container-fluid" id="main">
+  	<div class="row">
+			<div class="col-md-2">
+				<div class="panel panel-default">
+					<div class="panel-heading"><h3 class="panel-title">Actions</h3></div>
+					<div class="panel-body">
+						{{outlet 'product-links'}}
+						{{outlet 'product-actions'}}
+					</div>
+				</div>
+			</div>
+				
+<!--				<div class="col-sm-1"></div>-->
+				
+			<div class="col-md-9">
+       	{{outlet}}
+			</div>
+		</div>
+	</div>
+</div>
