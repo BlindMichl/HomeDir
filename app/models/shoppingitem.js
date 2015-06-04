@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-	shoppinglist: DS.belongsTo('shoppinglist')
-	, product: DS.belongsTo('product')
+	shoppinglist: DS.belongsTo('shoppinglist', { async: true})
+	, product: DS.belongsTo('product', { async: true})
 	, amount: DS.attr('number')
 	, price: DS.attr('number')
 	, date_add: DS.attr('date')

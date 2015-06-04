@@ -11,7 +11,7 @@ Router.map(function() {
 
 	this.route("inventory");
 	
-  this.route("users", function() {
+  this.route("users");
   this.route('users.user', { path: 'users/:user_name' });	
   this.route("users.edit", { path: 'users/:user_name/edit' });	
   this.route("users.new", { path: 'users/new' });	
